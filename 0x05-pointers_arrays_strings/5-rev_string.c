@@ -3,21 +3,21 @@
 /**
  *  rev_string - print a string in reverse followed by a new line
  *  @s: string to be reversed
+ *  Return: Nothing
  */
 
 void rev_string(char *s)
 {
-int len, count, end;
-char beg;
-len = 0;
-while (s[len] != '\0')
-len++;
-len++;
-for (count = 0; count <= len / 2; count++)
+int l, i;
+char ch;
+/*find string length without null char*/
+for (l = 0; s[l] != '\0'; ++l);
+ /*swap the string by looping to half the string*/
+for (i = 0; i < l / 2; ++i)
 {
-beg = s[count];
-end = s[len - count];
-s[count] = end;
-s[len - count] = beg;
+ch = s[i];
+s[i] = s[l - 1 - i]; /*-1 because the array starts from 0*/
+s[l - 1 - i] = ch;
 }
 }
+
